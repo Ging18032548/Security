@@ -1,0 +1,57 @@
+// ใช้คำสั่งนี้เพิ่มตรวจสอบเวอร์ชันของ Docker 
+docker -v
+
+// ใช้คำสั่งนี้เพิ่มตรวจสอบเวอร์ชันของ Docker สามารถทำงานได้อย่างถูกต้องหรือไม่ 
+docker run hello-world 
+
+// ใช้คำสั่งนี้เพิ่มตรวจสอบสถานะของ Container ทั้งหมด
+docker ps --all
+
+// ใช้คำสั่งที่ใช้ตรวจสอบ image ทั้งงหมดที่มีในเครื่อง
+docker images
+
+// 
+docker run busybox
+
+// ใช้คำสั่งนี้เพื่อหยุด Container 
+docker stop <container_id_or_name>
+
+// ตำสั่งนี้ใช้ดึง image จาก hub
+docker pull <image_name>
+
+// ใช้เพื่อสร้าง container ใหม่จากอิมเมจ busybox โดยไม่ต้องรัน container นั้นทันที
+docker create busybox ping google.com
+
+// ใช้คำสั่งนี้เพิ่มตรวจสอบสถานะของ container ที่กำลังทำงานอยู่
+docker ps 
+
+
+// ใช้ลบ Container ที่ไม่ต้องการอีกต่อไป 
+docker rm <container_id_or_name>
+
+// ลบอิมเมจที่ไม่ต้องการอีกต่อไป 
+docker system prune
+
+// ใช้เพื่อรัน Container ที่ใช้ภาพ "nginx" 
+docker run nginx
+
+// ใช้เพื่อเข้าสุ่เซลล์ของ container ที่กำลังทำงานอยู่ โดยการแทนที่ <container_id_or_name> ด้วย ID
+docker exec -it <container_id_or_name> sh
+docker exec -it 80ec9ed74dc3 bash
+
+cd /user/share/nginx/html
+cat index.html
+
+docker run -d -p 9000:80 nginx
+docker run -d -p 8000:80 nginx
+
+// คำสั่งหยุดรัน 
+docker stop <container_id_or_name>
+docker rm <container_id_or_name>
+
+
+docker image inspect nginx
+
+docker pull wordpress  
+docker pull mysql:5.7
+docker pull phpmyadmin/phpmyadmin
